@@ -1,0 +1,32 @@
+# Two terminals attempt to create user then log in. One of the two
+# terminals will succeed in user creation, both should succeed in logging in.
+# Terminal 1
+create user user 30
+login user user
+quit
+*
+# Terminal 1 suceeds to create user and log in
+Created user user
+Logged in as user
+Goodbye
+|
+# Terminal 1 fails to create user and log in
+Failed to create user
+Logged in as user
+Goodbye
+*
+# Terminal 2
+create user user 30
+login user user
+quit
+*
+# Terminal 2 suceeds to create user and log in
+Failed to create user
+Logged in as user
+Goodbye
+|
+# Terminal 2 fails to create user and log in
+Created user user
+Logged in as user
+Goodbye
+*

@@ -1,0 +1,96 @@
+# This tests two users trying to book the same flight with more than 1 seat left.
+# Both of them should succeed with different reservation ID.
+#
+# user 1
+create user1 user1 10000
+login user1 user1
+search "Seattle WA" "San Francisco CA" 1 2 5
+book 0
+quit
+*
+#
+# expected printouts for user 1
+#
+# first scenario: user 1's reservation ID is 1
+#
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 110 minutes
+ID: 495934 Day: 2 Carrier: UA Number: 1237 Origin: Seattle WA Dest: San Francisco CA Duration: 110 Capacity: 9 Price: 101
+Itinerary 1: 1 flight(s), 111 minutes
+ID: 487131 Day: 2 Carrier: UA Number: 791 Origin: Seattle WA Dest: San Francisco CA Duration: 111 Capacity: 1 Price: 179
+Itinerary 2: 1 flight(s), 112 minutes
+ID: 486924 Day: 2 Carrier: UA Number: 785 Origin: Seattle WA Dest: San Francisco CA Duration: 112 Capacity: 4 Price: 310
+Itinerary 3: 1 flight(s), 113 minutes
+ID: 467613 Day: 2 Carrier: UA Number: 239 Origin: Seattle WA Dest: San Francisco CA Duration: 113 Capacity: 9 Price: 978
+Itinerary 4: 1 flight(s), 115 minutes
+ID: 1023313 Day: 2 Carrier: UA Number: 1531 Origin: Seattle WA Dest: San Francisco CA Duration: 115 Capacity: 6 Price: 221
+Booked flight(s), reservation ID: 1
+Goodbye
+#
+|  # "|" denotes an alternate outcome scenario
+#
+# second scenario: user 1's reservation ID is 2
+#
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 110 minutes
+ID: 495934 Day: 2 Carrier: UA Number: 1237 Origin: Seattle WA Dest: San Francisco CA Duration: 110 Capacity: 9 Price: 101
+Itinerary 1: 1 flight(s), 111 minutes
+ID: 487131 Day: 2 Carrier: UA Number: 791 Origin: Seattle WA Dest: San Francisco CA Duration: 111 Capacity: 1 Price: 179
+Itinerary 2: 1 flight(s), 112 minutes
+ID: 486924 Day: 2 Carrier: UA Number: 785 Origin: Seattle WA Dest: San Francisco CA Duration: 112 Capacity: 4 Price: 310
+Itinerary 3: 1 flight(s), 113 minutes
+ID: 467613 Day: 2 Carrier: UA Number: 239 Origin: Seattle WA Dest: San Francisco CA Duration: 113 Capacity: 9 Price: 978
+Itinerary 4: 1 flight(s), 115 minutes
+ID: 1023313 Day: 2 Carrier: UA Number: 1531 Origin: Seattle WA Dest: San Francisco CA Duration: 115 Capacity: 6 Price: 221
+Booked flight(s), reservation ID: 2
+Goodbye
+#
+*
+#
+# similarly for user 2
+#
+create user2 user2 10000
+login user2 user2
+search "Seattle WA" "San Francisco CA" 1 2 5
+book 0
+quit
+*
+#
+# first scenario: user 2's reservation ID is 2
+#
+Created user user2
+Logged in as user2
+Itinerary 0: 1 flight(s), 110 minutes
+ID: 495934 Day: 2 Carrier: UA Number: 1237 Origin: Seattle WA Dest: San Francisco CA Duration: 110 Capacity: 9 Price: 101
+Itinerary 1: 1 flight(s), 111 minutes
+ID: 487131 Day: 2 Carrier: UA Number: 791 Origin: Seattle WA Dest: San Francisco CA Duration: 111 Capacity: 1 Price: 179
+Itinerary 2: 1 flight(s), 112 minutes
+ID: 486924 Day: 2 Carrier: UA Number: 785 Origin: Seattle WA Dest: San Francisco CA Duration: 112 Capacity: 4 Price: 310
+Itinerary 3: 1 flight(s), 113 minutes
+ID: 467613 Day: 2 Carrier: UA Number: 239 Origin: Seattle WA Dest: San Francisco CA Duration: 113 Capacity: 9 Price: 978
+Itinerary 4: 1 flight(s), 115 minutes
+ID: 1023313 Day: 2 Carrier: UA Number: 1531 Origin: Seattle WA Dest: San Francisco CA Duration: 115 Capacity: 6 Price: 221
+Booked flight(s), reservation ID: 2
+Goodbye
+#
+|
+#
+# second scenario: user 2's reservation ID is 1
+#
+Created user user2
+Logged in as user2
+Itinerary 0: 1 flight(s), 110 minutes
+ID: 495934 Day: 2 Carrier: UA Number: 1237 Origin: Seattle WA Dest: San Francisco CA Duration: 110 Capacity: 9 Price: 101
+Itinerary 1: 1 flight(s), 111 minutes
+ID: 487131 Day: 2 Carrier: UA Number: 791 Origin: Seattle WA Dest: San Francisco CA Duration: 111 Capacity: 1 Price: 179
+Itinerary 2: 1 flight(s), 112 minutes
+ID: 486924 Day: 2 Carrier: UA Number: 785 Origin: Seattle WA Dest: San Francisco CA Duration: 112 Capacity: 4 Price: 310
+Itinerary 3: 1 flight(s), 113 minutes
+ID: 467613 Day: 2 Carrier: UA Number: 239 Origin: Seattle WA Dest: San Francisco CA Duration: 113 Capacity: 9 Price: 978
+Itinerary 4: 1 flight(s), 115 minutes
+ID: 1023313 Day: 2 Carrier: UA Number: 1531 Origin: Seattle WA Dest: San Francisco CA Duration: 115 Capacity: 6 Price: 221
+Booked flight(s), reservation ID: 1
+Goodbye
+*

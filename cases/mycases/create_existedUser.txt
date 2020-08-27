@@ -1,0 +1,10 @@
+# create a single user twice
+create user2 user2 30
+create user2 user2 30
+quit
+*
+# expected printouts
+Created user user2
+Failed to create user
+Goodbye
+*

@@ -1,0 +1,22 @@
+# user 1
+create user user 100
+login user user
+search "Seattle WA" "Boston MA" 1 2 1
+book 0
+reservations
+cancel 2
+quit
+*
+#
+# expected printouts for user 1
+#
+Created user user
+Logged in as user
+Itinerary 0: 1 flight(s), 299 minutes
+ID: 720462 Day: 2 Carrier: B6 Number: 498 Origin: Seattle WA Dest: Boston MA Duration: 299 Capacity: 18 Price: 838
+Booked flight(s), reservation ID: 1
+Reservation 1 paid: false:
+ID: 720462 Day: 2 Carrier: B6 Number: 498 Origin: Seattle WA Dest: Boston MA Duration: 299 Capacity: 18 Price: 838
+Failed to cancel reservation 2
+Goodbye
+*

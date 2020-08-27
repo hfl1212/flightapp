@@ -1,0 +1,21 @@
+# Tests 2 terminals trying to create distinct accounts at the same time
+# Both should succeed
+#
+# Terminal 1
+create user1 pwd1 100
+quit
+*
+# expected result for Terminal 1
+# Terminal 1 succeeds
+Created user user1
+Goodbye
+*
+# Terminal 2
+create user2 pwd2 100
+quit
+*
+# expected result for Terminal 2
+# Terminal 2 succeeds
+Created user user2
+Goodbye
+*
